@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: 109, 40, 217;
+  --color-secondary: 13, 148, 136;
+  --color-accent: 245, 158, 11;
+  --color-success: 34, 197, 94;
+  --color-warning: 234, 88, 12;
+  --color-error: 220, 38, 38;
+  --color-background: 15, 23, 42;
+  --color-surface: 30, 41, 59;
+  --color-text: 248, 250, 252;
+}
+
+@layer base {
+  html {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  
+  body {
+    @apply bg-slate-900 text-slate-100 min-h-screen;
+    overflow-x: hidden;
+  }
+
+  button {
+    @apply transition-all duration-300;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-300;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-600 hover:bg-secondary-700 text-white;
+  }
+  
+  .btn-accent {
+    @apply bg-accent-500 hover:bg-accent-600 text-white;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-white/20 hover:border-white/40 bg-black/20 backdrop-blur-sm;
+  }
+  
+  .glass-panel {
+    @apply bg-slate-800/70 backdrop-blur-lg border border-slate-700/50 rounded-xl shadow-lg;
+  }
+  
+  .input-field {
+    @apply bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary-500;
+  }
+  
+  .card {
+    @apply glass-panel p-4 transition-all duration-300 hover:shadow-xl;
+  }
+}
+
+/* Custom A-Frame styling */
+.a-enter-vr-button {
+  @apply !bg-primary-600 !border-primary-700;
+}
+
+/* Disable A-Frame Inspector shortcut */
+.a-inspector-loader {
+  display: none !important;
+}
+
+/* Hide scroll bar but allow scrolling */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(109, 40, 217, 0.5);
+  border-radius: 5px;
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+  max-width: 100vw;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
